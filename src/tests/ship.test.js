@@ -8,4 +8,13 @@ describe("Test ship class", () => {
         expect(ship1.length).toBe(5);
         expect(ship2.length).toBe(2);
     });
+
+    test("Ship hits increase when calling hit()", () => {
+        const ship = new Ship(5);
+        expect(ship.hits).toBe(0);
+
+        ship.hit();
+        ship.hit();
+        expect(ship.hits).toBe(2);
+    });
 });
