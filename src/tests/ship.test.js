@@ -17,4 +17,14 @@ describe("Test ship class", () => {
         ship.hit();
         expect(ship.hits).toBe(2);
     });
+
+    test("Check if ship is sunk", () => {
+        const ship = new Ship(3);
+        expect(ship.isSunk()).toBe(false)
+
+        ship.hit()
+        ship.hit()
+        ship.hit()
+        expect(ship.isSunk()).toBe(true)
+    })
 });
