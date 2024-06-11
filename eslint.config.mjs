@@ -16,7 +16,7 @@ const compat = new FlatCompat({
 });
 
 export default [
-    { languageOptions: { globals: globals.browser } },
+    { languageOptions: { globals: { ...globals.browser, ...globals.jest } } },
     ...compat.extends("airbnb-base"),
     eslintConfigPrettier,
 ];
