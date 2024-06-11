@@ -18,6 +18,11 @@ export default class Ship {
         this.#hits += 1;
     }
 
+    /** @returns {boolean} */
+    isSunk() {
+        return this.#hits >= this.#length;
+    }
+
     /** @returns {number} */
     get length() {
         return this.#length;
