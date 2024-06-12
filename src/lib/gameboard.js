@@ -21,6 +21,9 @@ export default class GameBoard {
      * @returns {boolean}
      */
     placeShip(coordinates, length, orientation) {
+        if (!this.#isValidPlacement(coordinates, length, orientation))
+            return false;
+
         const [x, y] = coordinates;
         const ship = new Ship(length);
         this.#ships.push(ship);
@@ -36,6 +39,21 @@ export default class GameBoard {
                 this.#board[x + i][y] = ship;
             }
         }
+
+        return true;
+    }
+
+    /**
+     * @param {number[]} coordinates
+     * @param {number} length
+     * @param {string} orientation
+     * @returns {boolean}
+     */
+    #isValidPlacement(coordinates, length, orientation) {
+        const [x, y] = coordinates;
+
+        // If starting coordinates are out of gameboard bounds
+        if (x < 0 || x > 9 || y < 0 || y > 9) return false;
 
         return true;
     }
