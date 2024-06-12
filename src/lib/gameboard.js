@@ -55,6 +55,15 @@ export default class GameBoard {
         // If starting coordinates are out of gameboard bounds
         if (x < 0 || x > 9 || y < 0 || y > 9) return false;
 
+        if (orientation === "h") {
+            // If ship would exceed horizontal bounds
+            if (y + length - 1 > 9) return false;
+        }
+
+        if (orientation === "v") {
+            if (x + length - 1 > 9) return false;
+        }
+
         return true;
     }
 
