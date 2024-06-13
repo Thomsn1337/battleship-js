@@ -7,6 +7,9 @@ export default class GameBoard {
     /** @type {Ship[]} */
     #ships;
 
+    /** @type {Set<string>} */
+    #hits;
+
     /** @constructor */
     constructor() {
         this.#board = Array.from({ length: 10 }, () =>
@@ -14,6 +17,7 @@ export default class GameBoard {
         );
 
         this.#ships = [];
+        this.#hits = new Set();
     }
 
     /**
@@ -74,6 +78,24 @@ export default class GameBoard {
                 if (this.#board[x + i][y]) return false;
             }
         }
+
+        return true;
+    }
+
+    /**
+     * @param {number[]} coordinates
+     * @returns {boolean | null}
+     */
+    receiveAttack(coordinates) {
+        const [x, y] = coordinates;
+
+        if (x < 0 || x > 9 || y < 0 || y > 9) return null;
+        if (this.#hits.has(coordinates.toString())) return null;
+
+        this.#hits.add(coordinates.toString());
+        if (!this.#board[x][y]) return false;
+
+        this.#board[x][y].hit();
 
         return true;
     }
