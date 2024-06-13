@@ -38,3 +38,31 @@ describe("Ship placement on board", () => {
         expect(board.placeShip([4, 4], 3, "h")).toBe(false);
     });
 });
+
+describe("Receive attacks", () => {
+    const board = new GameBoard();
+    board.placeShip([1, 2], 4, "v");
+
+    test("Attack hits ship", () => {
+        expect(board.receiveAttack([1, 2])).toBe(true);
+        expect(board.receiveAttack([3, 2])).toBe(true);
+    });
+
+    test("Attack misses", () => {
+        expect(board.receiveAttack([5, 5])).toBe(false);
+        expect(board.receiveAttack([8, 3])).toBe(false);
+    });
+
+    test("Attacking an already attacked cell", () => {
+        expect(board.receiveAttack([3, 2])).toBe(null);
+        expect(board.receiveAttack([8, 3])).toBe(null);
+    });
+
+    test("Invalid attack coordinates", () => {
+        expect(board.receiveAttack([-1, 2])).toBe(null);
+        expect(board.receiveAttack([1, -2])).toBe(null);
+
+        expect(board.receiveAttack([10, 2])).toBe(null);
+        expect(board.receiveAttack([3, 10])).toBe(null);
+    });
+});
