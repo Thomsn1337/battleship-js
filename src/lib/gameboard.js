@@ -100,6 +100,11 @@ export default class GameBoard {
         return true;
     }
 
+    /** @returns {boolean} */
+    allShipsSunk() {
+        return this.#ships.every((ship) => ship.isSunk());
+    }
+
     get board() {
         return this.#board;
     }
