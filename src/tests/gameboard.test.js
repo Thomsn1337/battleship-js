@@ -66,3 +66,27 @@ describe("Receive attacks", () => {
         expect(board.receiveAttack([3, 10])).toBe(null);
     });
 });
+
+describe("Check if all ships sunk", () => {
+    const board = new GameBoard();
+    board.placeShip([2, 3], 5, "h");
+    board.placeShip([4, 2], 3, "v");
+
+    test("Only one ship sunk", () => {
+        board.receiveAttack([2, 3]);
+        board.receiveAttack([2, 4]);
+        board.receiveAttack([2, 5]);
+        board.receiveAttack([2, 6]);
+        board.receiveAttack([2, 7]);
+
+        expect(board.allShipsSunk()).toBe(false);
+    });
+
+    test("All ships sunk", () => {
+        board.receiveAttack([4, 2]);
+        board.receiveAttack([5, 2]);
+        board.receiveAttack([6, 2]);
+
+        expect(board.allShipsSunk()).toBe(true);
+    });
+});
