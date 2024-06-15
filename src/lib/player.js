@@ -17,7 +17,7 @@ export default class Player {
     }
 
     /** @returns {GameBoard} */
-    get board() {
+    get gameboard() {
         return this.#board;
     }
 
