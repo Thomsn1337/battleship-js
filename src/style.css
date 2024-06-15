@@ -27,6 +27,10 @@
     border: 1px solid black;
 }
 
+.started .cell {
+    cursor: pointer;
+}
+
 .ship {
     background: green;
 }
@@ -37,4 +41,8 @@
 
 .miss {
     background: grey;
+}
+
+.hidden {
+    display: none;
 }

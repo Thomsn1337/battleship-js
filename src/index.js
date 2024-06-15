@@ -5,6 +5,11 @@ import {
     placeRandom,
 } from "./lib/gameUtils";
 
+const buttonContainer = document.querySelector(".start-buttons");
+
+const randomButton = document.querySelector("#random-place");
+const startButton = document.querySelector("#start-game");
+
 const playerGrid = document.querySelector("#player-grid");
 const npcGrid = document.querySelector("#npc-grid");
 
@@ -55,3 +60,11 @@ function startGame() {
 }
 
 document.addEventListener("DOMContentLoaded", placeShips);
+
+randomButton.addEventListener("click", placeShips);
+startButton.addEventListener("click", () => {
+    npcGrid.classList.add("started");
+    buttonContainer.classList.add("hidden");
+
+    startGame();
+});
