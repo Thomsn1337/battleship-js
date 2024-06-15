@@ -62,6 +62,17 @@ export function createGrid(container, player) {
     }
 }
 
+/**
+ * @param {string} player
+ * @param {Element} dialog
+ */
+export function displayWinner(player, dialog) {
+    const winnerMessage = dialog.querySelector("#winner-msg");
+    winnerMessage.textContent = `${player} wins`;
+
+    dialog.showModal();
+}
+
 /** @param {Player} player  */
 export function attackRandom(player) {
     let attackResult = null;

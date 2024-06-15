@@ -3,6 +3,7 @@ import Player from "./lib/player";
 import {
     attackRandom,
     createGrid,
+    displayWinner,
     placeRandom,
 } from "./lib/gameUtils";
 
@@ -12,6 +13,9 @@ const restartContainer = document.querySelector(".restart-button");
 const randomButton = document.querySelector("#random-place");
 const startButton = document.querySelector("#start-game");
 const restartButton = document.querySelector("#restart");
+const playAgainButton = document.querySelector("#play-again");
+
+const winnerDialog = document.querySelector("#winner-dialog");
 
 const playerGrid = document.querySelector("#player-grid");
 const npcGrid = document.querySelector("#npc-grid");
@@ -74,6 +78,16 @@ startButton.addEventListener("click", () => {
 });
 
 restartButton.addEventListener("click", () => {
+    npcGrid.classList.remove("started");
+    buttonContainer.classList.remove("hidden");
+    restartContainer.classList.add("hidden");
+
+    placeShips();
+});
+
+playAgainButton.addEventListener("click", () => {
+    winnerDialog.close();
+
     npcGrid.classList.remove("started");
     buttonContainer.classList.remove("hidden");
     restartContainer.classList.add("hidden");
