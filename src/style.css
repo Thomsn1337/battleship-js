@@ -30,3 +30,11 @@
 .ship {
     background: green;
 }
+
+.hit {
+    background: red;
+}
+
+.miss {
+    background: grey;
+}
