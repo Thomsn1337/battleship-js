@@ -1,10 +1,38 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title></title>
-    </head>
 
-    <body></body>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Battleships</title>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="grid-wrapper">
+            <p>Player</p>
+            <div class="grid" id="player-grid"></div>
+        </div>
+        <div class="grid-wrapper">
+            <p>Computer</p>
+            <div class="grid" id="npc-grid"></div>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <div class="start-buttons">
+            <button id="random-place">Place ships randomly</button>
+            <button id="start-game">Start game</button>
+        </div>
+        <div class="restart-button hidden">
+            <button id="restart">Restart</button>
+        </div>
+    </div>
+
+    <dialog id="winner-dialog">
+        <p id="winner-msg"></p>
+        <button id="play-again">Play again</button>
+    </dialog>
+</body>
+
 </html>
