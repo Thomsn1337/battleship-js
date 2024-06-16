@@ -9,5 +9,6 @@ to adapt the test-first principle.
 
 ## Links
 
+- [Preview](https://thomsn1337.github.io/battleship-js/)
 - [Assignment page](https://www.theodinproject.com/lessons/node-path-javascript-battleship)
 - [About Odin](https://www.theodinproject.com/about)
